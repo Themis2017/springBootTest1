@@ -25,6 +25,11 @@ import java.util.Date;
 public class InitAction {
     @Autowired
     private UserinfosService userinfosService;
+
+    /**
+     * 解决页面上时间的问题
+     * @param binder
+     */
     @InitBinder
     private void dateBind(ServletRequestDataBinder binder){
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
@@ -42,10 +47,22 @@ public class InitAction {
         userinfosService.saveUser(user);
         return "redirect:/init.do";
     }
+
+    /**
+     * 解决页面间相互跳转的问题
+     * @param pagename
+     * @return
+     */
     @RequestMapping("/{pagename}jump.do")
     public String home(@PathVariable( "pagename") String pagename){
         return pagename;
     }
+
+    /**
+     * 页面传参
+     * @param userid
+     * @return
+     */
     @RequestMapping("/{userid}del.do")
     public String del(@PathVariable("userid") int userid){
         userinfosService.delUser(userid);
@@ -57,6 +74,12 @@ public class InitAction {
         mav.addObject("user",userinfosService.single(userid));
         return mav;
     }
+
+    /**
+     * 页面提交form表单
+     * @param user
+     * @return
+     */
     @RequestMapping("/update.do")
     public String update(@ModelAttribute(value = "user")Userinfos user){
         userinfosService.updateUser(user);
