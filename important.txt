@@ -1,0 +1,10 @@
+URL中变量的替换：
+<!-- Will produce 'http://localhost:8080/standard/unread' (plus rewriting) -->
+ <a  th:href="@{/standard/{type}(type=${type})}">view</a>
+
+<!-- Will produce '/gtvg/order/3/details' (plus rewriting) -->
+<a href="details.html" th:href="@{/order/{orderId}/details(orderId=${o.id})}">view</a>
+
+URL中字符串的拼接：
+<span th:text="'Welcome to our application, ' + ${user.name} + '!'">
+<span th:text="|Welcome to our application, ${user.name}!|">

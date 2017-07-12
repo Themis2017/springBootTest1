@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  lang="en">
+<head>
+    <title>Title</title>
+</head>
+<body>
+<form action="update.do" method="post"  th:each="uss:${user}">
+    <input type="hidden" name="userid" th:value="${uss.userid}" />
+    <label for="username">用户姓名</label><input type="text" name="username"  th:value="${uss.username}"/><br/>
+    <label for="birthday">用户生日</label><input type="text" name="birthday" th:value="${#dates.format(uss.birthday,'yyyy-MM-dd')}" /><br/>
+    <button>提交数据</button>
+</form>
+</body>
+</html>

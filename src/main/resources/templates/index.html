@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"  lang="en">
+<head>
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>用户编号</th>
+        <th>用户姓名</th>
+        <th>用户生日</th>
+        <th>删除用户</th>
+        <th>更新用户</th>
+    </tr>
+    <tr th:each="us:${pb}">
+        <td th:text="${us.userid}">test</td>
+        <td th:text="${us.username}">test</td>
+        <td th:text="${#dates.format(us.birthday,'yyyy-MM-dd')}">test</td>
+
+        <td><a th:href="@{/{userid}(userid=${us.userid})}+'del.do'">删除用户</a></td>
+        <td><a th:href="@{/{userid}(userid=${us.userid})}+'single.do'">更新用户</a></td>
+    </tr>
+</table>
+<a  th:href="@{/savejump.do}">添加用户</a>
+</body>
+</html>
