@@ -1,4 +1,4 @@
-URL中变量的替换：
+﻿URL中变量的替换：
 <!-- Will produce 'http://localhost:8080/standard/unread' (plus rewriting) -->
  <a  th:href="@{/standard/{type}(type=${type})}">view</a>
 
@@ -8,3 +8,6 @@ URL中变量的替换：
 URL中字符串的拼接：
 <span th:text="'Welcome to our application, ' + ${user.name} + '!'">
 <span th:text="|Welcome to our application, ${user.name}!|">
+
+
+测试
