@@ -9,6 +9,4 @@ URL中字符串的拼接：
 <span th:text="'Welcome to our application, ' + ${user.name} + '!'">
 <span th:text="|Welcome to our application, ${user.name}!|">
 
-
-测试111
 测试222
